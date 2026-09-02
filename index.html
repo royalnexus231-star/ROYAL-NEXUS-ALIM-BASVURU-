@@ -7,8 +7,6 @@
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
         body {
@@ -16,8 +14,6 @@
             color: #c9d1d9;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             padding: 20px;
         }
         .form-container {
@@ -43,6 +39,7 @@
         .form-header p {
             font-size: 0.9rem;
             color: #8b949e;
+            margin: 0;
         }
         .section-title {
             color: #f0883e;
@@ -91,17 +88,6 @@
         button:hover {
             background-color: #2ea043;
         }
-        .alert-success {
-            display: none;
-            background-color: rgba(46, 160, 67, 0.15);
-            border: 1px solid #2ea043;
-            color: #3fb950;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.9rem;
-            margin-top: 16px;
-        }
     </style>
 </head>
 <body>
@@ -111,137 +97,123 @@
         <h2>ROYAL NEXUS ALIM FORMU</h2>
         <p>Aramıza katılmak için 20 soruluk başvuru formunu eksiksiz doldurun.</p>
     </div>
-    
-    <form id="applyForm">
+
+    <form action="https://formspree.io/f/mgbjqakz" method="POST">
+        
         <div class="section-title">1. Kişisel Bilgiler & İletişim</div>
         <div class="form-group">
-            <label>1. Oyun İçi Adınız (IGN) / Nickname</label>
-            <input type="text" required placeholder="Örn: RNX_Player">
+            <label for="ign">1. Oyun İçi Adınız (IGN) / Nickname</label>
+            <input type="text" id="ign" name="1_Oyun_Ici_Ad" required placeholder="Örn: RNX_Player">
         </div>
         <div class="form-group">
-            <label>2. Adınız ve Soyadınız</label>
-            <input type="text" required placeholder="Ad Soyad">
+            <label for="fullname">2. Adınız ve Soyadınız</label>
+            <input type="text" id="fullname" name="2_Ad_Soyad" required placeholder="Ad Soyad">
         </div>
         <div class="form-group">
-            <label>3. Yaşınız</label>
-            <input type="number" required placeholder="Örn: 18">
+            <label for="age">3. Yaşınız</label>
+            <input type="number" id="age" name="3_Yas" required placeholder="Örn: 18">
         </div>
         <div class="form-group">
-            <label>4. Instagram (IG) Hesabınız (Tek iletişim kanalı)</label>
-            <input type="text" required placeholder="@kullanici_adi">
+            <label for="instagram">4. Instagram (IG) Hesabınız (Tek iletişim kanalı)</label>
+            <input type="text" id="instagram" name="4_Instagram" required placeholder="@kullanici_adi">
         </div>
         <div class="form-group">
-            <label>5. Instagram Grubu ve Duyuruları Takip Edebilir misiniz?</label>
-            <select required>
+            <label for="ig_follow">5. Instagram Grubu ve Duyuruları Takip Edebilir misiniz?</label>
+            <select id="ig_follow" name="5_Instagram_Takip" required>
                 <option value="">Seçiniz...</option>
-                <option>Evet, düzenli takip ederim</option>
-                <option>Bazen bakabilirim</option>
+                <option value="Evet, düzenli takip ederim">Evet, düzenli takip ederim</option>
+                <option value="Bazen bakabilirim">Bazen bakabilirim</option>
             </select>
         </div>
 
         <div class="section-title">2. Aktiflik & Donanım</div>
         <div class="form-group">
-            <label>6. Günlük Oyunda Kalma / Aktiflik Süreniz (Saat)</label>
-            <input type="text" required placeholder="Örn: Günde 3-4 saat">
+            <label for="active_hours">6. Günlük Oyunda Kalma / Aktiflik Süreniz (Saat)</label>
+            <input type="text" id="active_hours" name="6_Aktiflik_Suresi" required placeholder="Örn: Günde 3-4 saat">
         </div>
         <div class="form-group">
-            <label>7. Hangi Saat Aralıklarında Oyundasınız?</label>
-            <input type="text" required placeholder="Örn: 18:00 - 23:00">
+            <label for="time_range">7. Hangi Saat Aralıklarında Oyundasınız?</label>
+            <input type="text" id="time_range" name="7_Saat_Araliklari" required placeholder="Örn: 18:00 - 23:00">
         </div>
         <div class="form-group">
-            <label>8. Kullandığınız Cihaz Bilgisi (Cihaz Modeli / RAM vb.)</label>
-            <input type="text" required placeholder="Örn: iPhone 11 / Samsung A52">
+            <label for="device">8. Kullandığınız Cihaz Bilgisi (Cihaz Modeli / RAM vb.)</label>
+            <input type="text" id="device" name="8_Cihaz_Bilgisi" required placeholder="Örn: iPhone 11 / Samsung A52">
         </div>
         <div class="form-group">
-            <label>9. İnternet Bağlantınız ve Oyundaki Ping Durumunuz</label>
-            <input type="text" required placeholder="Örn: Akıcı, kasmıyor / Bazen yüksek ping">
+            <label for="ping">9. İnternet Bağlantınız ve Oyundaki Ping Durumunuz</label>
+            <input type="text" id="ping" name="9_Internet_Ping" required placeholder="Örn: Akıcı, kasmıyor / Bazen yüksek ping">
         </div>
         <div class="form-group">
-            <label>10. Oyun İçi El Beceriniz / Yetenek Seviyeniz</label>
-            <select required>
+            <label for="skill">10. Oyun İçi El Beceriniz / Yetenek Seviyeniz</label>
+            <select id="skill" name="10_Yetenek_Seviyesi" required>
                 <option value="">Seçiniz...</option>
-                <option>Başlangıç Seviyesi</option>
-                <option>Orta Seviye</option>
-                <option>İleri Seviye (Usta/Profesyonel)</option>
+                <option value="Başlangıç Seviyesi">Başlangıç Seviyesi</option>
+                <option value="Orta Seviye">Orta Seviye</option>
+                <option value="İleri Seviye (Usta/Profesyonel)">İleri Seviye (Usta/Profesyonel)</option>
             </select>
         </div>
 
         <div class="section-title">3. Oyun İçi Tecrübe & Geçmiş</div>
         <div class="form-group">
-            <label>11. Toplam Oyun Tecrübeniz (Ay / Yıl)</label>
-            <input type="text" required placeholder="Örn: 2 Yıldır oynuyorum">
+            <label for="experience">11. Toplam Oyun Tecrübeniz (Ay / Yıl)</label>
+            <input type="text" id="experience" name="11_Oyun_Tecrubesi" required placeholder="Örn: 2 Yıldır oynuyorum">
         </div>
         <div class="form-group">
-            <label>12. Oyundaki Rütbeniz / Seviyeniz / Garaj Durumunuz</label>
-            <input type="text" required placeholder="Mevcut seviye veya garaj durumu">
+            <label for="rank">12. Oyundaki Rütbeniz / Seviyeniz / Garaj Durumunuz</label>
+            <input type="text" id="rank" name="12_Rutbe_Garaj" required placeholder="Mevcut seviye veya garaj durumu">
         </div>
         <div class="form-group">
-            <label>13. Daha Önce Bulunduğunuz Klanlar / Ekipler</label>
-            <textarea rows="2" placeholder="Varsa klan isimlerini yazın..."></textarea>
+            <label for="old_clans">13. Daha Önce Bulunduğunuz Klanlar / Ekipler</label>
+            <textarea id="old_clans" name="13_Eski_Klanlar" rows="2" placeholder="Varsa klan isimlerini yazın..."></textarea>
         </div>
         <div class="form-group">
-            <label>14. Önceki Ekibinizden/Klanınızdan Ayrılma Sebebiniz</label>
-            <textarea rows="2" placeholder="Kısaca açıklayın..."></textarea>
+            <label for="leave_reason">14. Önceki Ekibinizden/Klanınızdan Ayrılma Sebebiniz</label>
+            <textarea id="leave_reason" name="14_Ayrilma_Sebebi" rows="2" placeholder="Kısaca açıklayın..."></textarea>
         </div>
         <div class="form-group">
-            <label>15. Klan İçi İstenen Rol / Unvan</label>
-            <input type="text" required placeholder="Örn: Sürücü, Editör, Moderatör, Üye vb.">
+            <label for="role">15. Klan İçi İstenen Rol / Unvan</label>
+            <input type="text" id="role" name="15_Istenen_Rol" required placeholder="Örn: Sürücü, Editör, Moderatör, Üye vb.">
         </div>
 
         <div class="section-title">4. Ekip Uyumu & Kurallar</div>
         <div class="form-group">
-            <label>16. Royal NEXUS Ekibine Katılmak İstemendeki Temel Sebep</label>
-            <textarea rows="2" required placeholder="Neden RNX?"></textarea>
+            <label for="why_rnx">16. Royal NEXUS Ekibine Katılmak İstemendeki Temel Sebep</label>
+            <textarea id="why_rnx" name="16_RNX_Katilma_Sebebi" rows="2" required placeholder="Neden RNX?"></textarea>
         </div>
         <div class="form-group">
-            <label>17. Ekibimize / Klanımıza Nasıl Bir Katkı Sağlayabilirsin?</label>
-            <textarea rows="2" required placeholder="Açıklayınız..."></textarea>
+            <label for="contribution">17. Ekibimize / Klanımıza Nasıl Bir Katkı Sağlayabilirsin?</label>
+            <textarea id="contribution" name="17_Saglanacak_Katki" rows="2" required placeholder="Açıklayınız..."></textarea>
         </div>
         <div class="form-group">
-            <label>18. Ekip Ortamına Ve Arkadaşlara Ayak Uydurabilir misiniz?</label>
-            <select required>
+            <label for="teamwork">18. Ekip Ortamına Ve Arkadaşlara Ayak Uydurabilir misiniz?</label>
+            <select id="teamwork" name="18_Ekip_Uyum" required>
                 <option value="">Seçiniz...</option>
-                <option>Evet, kolayca uyum sağlarım</option>
-                <option>Zamanla alışırım</option>
-                <option>Hayır</option>
+                <option value="Evet, kolayca uyum sağlarım">Evet, kolayca uyum sağlarım</option>
+                <option value="Zamanla alışırım">Zamanla alışırım</option>
+                <option value="Hayır">Hayır</option>
             </select>
         </div>
         <div class="form-group">
-            <label>19. Klan İçi Etkinlik ve Konvoylara Düzenli Katılır mısınız?</label>
-            <select required>
+            <label for="events">19. Klan İçi Etkinlik ve Konvoylara Düzenli Katılır mısınız?</label>
+            <select id="events" name="19_Etkinlik_Katilim" required>
                 <option value="">Seçiniz...</option>
-                <option>Evet, hepsine katılırım</option>
-                <option>Bazen katılamayabilirim</option>
-                <option>Hayır</option>
+                <option value="Evet, hepsine katılırım">Evet, hepsine katılırım</option>
+                <option value="Bazen katılamayabilirim">Bazen katılamayabilirim</option>
+                <option value="Hayır">Hayır</option>
             </select>
         </div>
         <div class="form-group">
-            <label>20. Royal NEXUS Kurallarına Ve Yönetim Kararlarına Uyar mısınız?</label>
-            <select required>
+            <label for="rules">20. Royal NEXUS Kurallarına Ve Yönetim Kararlarına Uyar mısınız?</label>
+            <select id="rules" name="20_Kural_Kabul" required>
                 <option value="">Seçiniz...</option>
-                <option>Kabul Ediyorum</option>
-                <option>Kabul Etmiyorum</option>
+                <option value="Kabul Ediyorum">Kabul Ediyorum</option>
+                <option value="Kabul Etmiyorum">Kabul Etmiyorum</option>
             </select>
         </div>
 
         <button type="submit">Başvuruyu Gönder</button>
     </form>
-
-    <div id="successMessage" class="alert-success">
-        ✔ Başvurunuz başarıyla alındı!
-    </div>
 </div>
-
-<script>
-    document.getElementById('applyForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        document.getElementById('successMessage').style.display = 'block';
-        this.reset();
-        setTimeout(() => {
-            document.getElementById('successMessage').style.display = 'none';
-        }, 4000);
-    });
-</script>
 
 </body>
 </html>
