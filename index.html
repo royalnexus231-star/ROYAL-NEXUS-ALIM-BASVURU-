@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNX Alım Başvuru Formu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+        h2 {
+            color: #58a6ff;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        p.subtitle {
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #58a6ff;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #238636;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2ea043;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>RNX Alım Formu</h2>
+    <p class="subtitle">Lütfen bilgilerinizi eksiksiz doldurun.</p>
+    
+    <form action="#" method="POST">
+        <div class="form-group">
+            <label for="username">Oyun İçi / Kullanıcı Adı</label>
+            <input type="text" id="username" name="username" required placeholder="Örn: RNX_Player">
+        </div>
+
+        <div class="form-group">
+            <label for="age">Yaşınız</label>
+            <input type="number" id="age" name="age" required placeholder="Örn: 18">
+        </div>
+
+        <div class="form-group">
+            <label for="discord">Discord Kullanıcı Adı / ID</label>
+            <input type="text" id="discord" name="discord" required placeholder="Örn: kullanıcı#0000">
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Deneyim / Rol Tercihi</label>
+            <select id="experience" name="experience">
+                <option value="oyuncu">Oyuncu</option>
+                <option value="yonetici">Yönetici / Moderatör</option>
+                <option value="tasarimci">Tasarımcı / Editör</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="note">Açıklama / Eklemek İstedikleriniz</label>
+            <textarea id="note" name="note" rows="3" placeholder="Kendinizden kısaca bahsedin..."></textarea>
+        </div>
+
+        <button type="submit">Başvuruyu Gönder</button>
+    </form>
+</div>
+
+</body>
+</html>
