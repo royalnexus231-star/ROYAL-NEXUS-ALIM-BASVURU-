@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RNX Alım Başvuru Formu</title>
+    <title>Royal NEXUS Alım Başvuru Formu</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,7 +12,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
         body {
-            background-color: #0d1117;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
             color: #c9d1d9;
             display: flex;
             justify-content: center;
@@ -23,22 +23,34 @@
         .form-container {
             background-color: #161b22;
             border: 1px solid #30363d;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 24px;
             width: 100%;
-            max-width: 450px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            max-width: 600px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
         }
-        h2 {
-            color: #58a6ff;
-            margin-bottom: 8px;
+        .form-header {
             text-align: center;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 16px;
         }
-        p.subtitle {
+        .form-header h2 {
+            color: #58a6ff;
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+        .form-header p {
             font-size: 0.9rem;
             color: #8b949e;
-            margin-bottom: 20px;
-            text-align: center;
+        }
+        .section-title {
+            color: #f0883e;
+            font-size: 1.05rem;
+            margin: 20px 0 12px 0;
+            border-left: 3px solid #f0883e;
+            padding-left: 8px;
+            font-weight: 600;
         }
         .form-group {
             margin-bottom: 16px;
@@ -46,78 +58,190 @@
         label {
             display: block;
             margin-bottom: 6px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
+            color: #e6edf3;
         }
         input, select, textarea {
             width: 100%;
             padding: 10px;
             background-color: #0d1117;
             border: 1px solid #30363d;
-            border-radius: 6px;
+            border-radius: 8px;
             color: #c9d1d9;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             outline: none;
         }
         input:focus, select:focus, textarea:focus {
             border-color: #58a6ff;
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
         }
         button {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background-color: #238636;
             color: #ffffff;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 20px;
         }
         button:hover {
             background-color: #2ea043;
+        }
+        .alert-success {
+            display: none;
+            background-color: rgba(46, 160, 67, 0.15);
+            border: 1px solid #2ea043;
+            color: #3fb950;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 16px;
         }
     </style>
 </head>
 <body>
 
 <div class="form-container">
-    <h2>RNX Alım Formu</h2>
-    <p class="subtitle">Lütfen bilgilerinizi eksiksiz doldurun.</p>
+    <div class="form-header">
+        <h2>ROYAL NEXUS ALIM FORMU</h2>
+        <p>Aramıza katılmak için 20 soruluk başvuru formunu eksiksiz doldurun.</p>
+    </div>
     
-    <form action="#" method="POST">
+    <form id="applyForm">
+        <div class="section-title">1. Kişisel Bilgiler & İletişim</div>
         <div class="form-group">
-            <label for="username">Oyun İçi / Kullanıcı Adı</label>
-            <input type="text" id="username" name="username" required placeholder="Örn: RNX_Player">
+            <label>1. Oyun İçi Adınız (IGN) / Nickname</label>
+            <input type="text" required placeholder="Örn: RNX_Player">
         </div>
-
         <div class="form-group">
-            <label for="age">Yaşınız</label>
-            <input type="number" id="age" name="age" required placeholder="Örn: 18">
+            <label>2. Adınız ve Soyadınız</label>
+            <input type="text" required placeholder="Ad Soyad">
         </div>
-
         <div class="form-group">
-            <label for="discord">Discord Kullanıcı Adı / ID</label>
-            <input type="text" id="discord" name="discord" required placeholder="Örn: kullanıcı#0000">
+            <label>3. Yaşınız</label>
+            <input type="number" required placeholder="Örn: 18">
         </div>
-
         <div class="form-group">
-            <label for="experience">Deneyim / Rol Tercihi</label>
-            <select id="experience" name="experience">
-                <option value="oyuncu">Oyuncu</option>
-                <option value="yonetici">Yönetici / Moderatör</option>
-                <option value="tasarimci">Tasarımcı / Editör</option>
+            <label>4. Instagram (IG) Hesabınız (Tek iletişim kanalı)</label>
+            <input type="text" required placeholder="@kullanici_adi">
+        </div>
+        <div class="form-group">
+            <label>5. Instagram Grubu ve Duyuruları Takip Edebilir misiniz?</label>
+            <select required>
+                <option value="">Seçiniz...</option>
+                <option>Evet, düzenli takip ederim</option>
+                <option>Bazen bakabilirim</option>
             </select>
         </div>
 
+        <div class="section-title">2. Aktiflik & Donanım</div>
         <div class="form-group">
-            <label for="note">Açıklama / Eklemek İstedikleriniz</label>
-            <textarea id="note" name="note" rows="3" placeholder="Kendinizden kısaca bahsedin..."></textarea>
+            <label>6. Günlük Oyunda Kalma / Aktiflik Süreniz (Saat)</label>
+            <input type="text" required placeholder="Örn: Günde 3-4 saat">
+        </div>
+        <div class="form-group">
+            <label>7. Hangi Saat Aralıklarında Oyundasınız?</label>
+            <input type="text" required placeholder="Örn: 18:00 - 23:00">
+        </div>
+        <div class="form-group">
+            <label>8. Kullandığınız Cihaz Bilgisi (Cihaz Modeli / RAM vb.)</label>
+            <input type="text" required placeholder="Örn: iPhone 11 / Samsung A52">
+        </div>
+        <div class="form-group">
+            <label>9. İnternet Bağlantınız ve Oyundaki Ping Durumunuz</label>
+            <input type="text" required placeholder="Örn: Akıcı, kasmıyor / Bazen yüksek ping">
+        </div>
+        <div class="form-group">
+            <label>10. Oyun İçi El Beceriniz / Yetenek Seviyeniz</label>
+            <select required>
+                <option value="">Seçiniz...</option>
+                <option>Başlangıç Seviyesi</option>
+                <option>Orta Seviye</option>
+                <option>İleri Seviye (Usta/Profesyonel)</option>
+            </select>
+        </div>
+
+        <div class="section-title">3. Oyun İçi Tecrübe & Geçmiş</div>
+        <div class="form-group">
+            <label>11. Toplam Oyun Tecrübeniz (Ay / Yıl)</label>
+            <input type="text" required placeholder="Örn: 2 Yıldır oynuyorum">
+        </div>
+        <div class="form-group">
+            <label>12. Oyundaki Rütbeniz / Seviyeniz / Garaj Durumunuz</label>
+            <input type="text" required placeholder="Mevcut seviye veya garaj durumu">
+        </div>
+        <div class="form-group">
+            <label>13. Daha Önce Bulunduğunuz Klanlar / Ekipler</label>
+            <textarea rows="2" placeholder="Varsa klan isimlerini yazın..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>14. Önceki Ekibinizden/Klanınızdan Ayrılma Sebebiniz</label>
+            <textarea rows="2" placeholder="Kısaca açıklayın..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>15. Klan İçi İstenen Rol / Unvan</label>
+            <input type="text" required placeholder="Örn: Sürücü, Editör, Moderatör, Üye vb.">
+        </div>
+
+        <div class="section-title">4. Ekip Uyumu & Kurallar</div>
+        <div class="form-group">
+            <label>16. Royal NEXUS Ekibine Katılmak İstemendeki Temel Sebep</label>
+            <textarea rows="2" required placeholder="Neden RNX?"></textarea>
+        </div>
+        <div class="form-group">
+            <label>17. Ekibimize / Klanımıza Nasıl Bir Katkı Sağlayabilirsin?</label>
+            <textarea rows="2" required placeholder="Açıklayınız..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>18. Ekip Ortamına Ve Arkadaşlara Ayak Uydurabilir misiniz?</label>
+            <select required>
+                <option value="">Seçiniz...</option>
+                <option>Evet, kolayca uyum sağlarım</option>
+                <option>Zamanla alışırım</option>
+                <option>Hayır</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>19. Klan İçi Etkinlik ve Konvoylara Düzenli Katılır mısınız?</label>
+            <select required>
+                <option value="">Seçiniz...</option>
+                <option>Evet, hepsine katılırım</option>
+                <option>Bazen katılamayabilirim</option>
+                <option>Hayır</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>20. Royal NEXUS Kurallarına Ve Yönetim Kararlarına Uyar mısınız?</label>
+            <select required>
+                <option value="">Seçiniz...</option>
+                <option>Kabul Ediyorum</option>
+                <option>Kabul Etmiyorum</option>
+            </select>
         </div>
 
         <button type="submit">Başvuruyu Gönder</button>
     </form>
+
+    <div id="successMessage" class="alert-success">
+        ✔ Başvurunuz başarıyla alındı!
+    </div>
 </div>
+
+<script>
+    document.getElementById('applyForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('successMessage').style.display = 'block';
+        this.reset();
+        setTimeout(() => {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 4000);
+    });
+</script>
 
 </body>
 </html>
